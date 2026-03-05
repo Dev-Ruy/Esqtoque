@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ERP Estoque</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div id="login" class="login">
+<h2>🔐 Login</h2>
+<input id="user" placeholder="Usuário">
+<input id="pass" type="password" placeholder="Senha">
+<button onclick="login()">Entrar</button>
+<p class="hint">admin / admin</p>
+</div>
+
+<div id="app" style="display:none">
+
+<header>
+<h1>📦 ERP de Estoque</h1>
+</header>
+
+<nav>
+<button onclick="showPage('dashboard')">Dashboard</button>
+<button onclick="showPage('produtos')">Produtos</button>
+<button onclick="showPage('vendas')">Vendas</button>
+<button onclick="exportar()">Exportar CSV</button>
+<button onclick="logout()">Sair</button>
+</nav>
+
+<section id="dashboard" class="page">
+<h2>📊 Dashboard</h2>
+
+<div class="cards">
+
+<div class="card">
+<h3>Total de Produtos</h3>
+<p id="totalProdutos">0</p>
+</div>
+
+<div class="card">
+<h3>Itens em Estoque</h3>
+<p id="totalEstoque">0</p>
+</div>
+
+<div class="card">
+<h3>Vendas</h3>
+<p id="totalVendas">0</p>
+</div>
+
+<div class="card">
+<h3>Faturamento</h3>
+<p id="faturamento">R$ 0</p>
+</div>
+
+</div>
+</section>
+
+<section id="produtos" class="page" style="display:none">
+
+<h2>Cadastrar Produto</h2>
+
+<input id="nome" placeholder="Nome">
+<input id="qtd" type="number" placeholder="Quantidade">
+<input id="preco" type="number" placeholder="Preço">
+<button onclick="addProduto()">Adicionar</button>
+
+<h2>Lista de Produtos</h2>
+
+<table>
+<thead>
+<tr>
+<th>Produto</th>
+<th>Qtd</th>
+<th>Preço</th>
+<th>Ações</th>
+</tr>
+</thead>
+
+<tbody id="listaProdutos"></tbody>
+
+</table>
+
+</section>
+
+<section id="vendas" class="page" style="display:none">
+
+<h2>Registrar Venda</h2>
+
+<select id="produtoVenda"></select>
+<input id="qtdVenda" type="number" placeholder="Quantidade">
+<button onclick="registrarVenda()">Vender</button>
+
+<h2>Histórico</h2>
+
+<table>
+<thead>
+<tr>
+<th>Produto</th>
+<th>Qtd</th>
+<th>Valor</th>
+</tr>
+</thead>
+
+<tbody id="listaVendas"></tbody>
+
+</table>
+
+</section>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
